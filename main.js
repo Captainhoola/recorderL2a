@@ -3,9 +3,15 @@ const playback = document.querySelector('.playback');
 const retry_btn = document.getElementById('retry-btn'); // Reference the retry button
 const dynamicBox = document.getElementById('dynamic-box'); // Reference the dynamic text box
 const timerDisplay = document.getElementById('timer'); // Reference the timer display (add this to your HTML)
+const uploadBtn = document.querySelector('#upload-btn'); // Reference the upload button
 
 mic_btn.addEventListener('click', ToggleMic);
 retry_btn.addEventListener('click', ResetRecording);
+
+// Hide the buttons initially
+playback.hidden = true;
+uploadBtn.hidden = true;
+retry_btn.hidden = true;
 
 let can_record = false;
 let is_recording = false;
@@ -47,7 +53,11 @@ function SetupStream(stream) {
         const audioURL = window.URL.createObjectURL(blob);
         playback.src = audioURL;
 
-        // Update instructions after recording stops
+        // Show the buttons and update instructions after recording stops
+        playback.hidden = false;
+        uploadBtn.hidden = false;
+        retry_btn.hidden = false;
+
         dynamicBox.textContent = 'Recording stopped. You can now review your answer or upload it.';
     };
 
@@ -109,10 +119,13 @@ function ResetRecording() {
         is_recording = false;
     }
 
+    // Hide the buttons after reset
+    playback.hidden = true;
+    uploadBtn.hidden = true;
+    retry_btn.hidden = true;
+
     console.log('Recording has been reset.');
 }
-
-const uploadBtn = document.querySelector('#upload-btn'); // Reference the upload button
 
 uploadBtn.addEventListener('click', async function() {
     // Ensure there is an audio file to upload
