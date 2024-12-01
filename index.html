@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Recorder</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+
+    <button class="mic-toggle" id="mic">
+      <span class="material-icons">mic</span>
+    </button>
+
+    <div class="text-container">
+      <div id="question-box" class="text-box">
+        What is your favorite memory from this year?
+      </div>
+    </div>
+
+    <div class="text-container">
+      <div id="timer" class="text-box">
+        0:00
+      </div>
+    </div>
+
+    <audio class="playback" controls></audio>
+
+  
+    <div class="button-container">
+      <button class="upload" id="upload-btn">
+        <span class="material-icons">publish</span>
+        Upload
+      </button>
+      <button class="retry" id="retry-btn">
+        <span class="material-icons">refresh</span>
+        Retry
+      </button>
+    </div>
+
+    <div class="text-container"></div>
+      <div id="dynamic-box" class="text-box">
+        Click the record button to start recording your answer.
+      </div>
+    </div>
+
+    
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>

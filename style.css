@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* Container for buttons */
+.button-container {
+    display: flex;
+    gap: 10px; /* Adjust space between buttons */
+    justify-content: center; /* Center buttons horizontally */
+  }
+
+button {
+    flex: 2; /* Make buttons equal width */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* Space between icon and text */
+    padding: 15px;
+    border: none;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.2);
+  }
+
+  button + button {
+    margin-left: 70px; /* Space between buttons */
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .text-box {
+    border: 0px solid #007BFF;
+    border-radius: 5px;
+    padding: 15px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    margin: 10px 0;
+    font-size: 16px;
+    background-color: transparent;
+  }
+
+
+body {
+    background-color: #eee;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 2rem;
+}
+
+
+button.upload {  
+    background-color: #28a745; /* Green for upload */
+}
+
+button.upload:hover {
+    background-color: #0a611e;
+}
+
+button.retry {
+    background-color: #686b69; /* Grey for upload */
+}
+
+button.retry:hover {
+    background-color: #4a4b4a;
+}
+
+
+.mic-toggle {
+    position: relative;
+    display: block;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    background-color: #d70040;
+    margin-bottom: 3rem;
+    align-items: center;
+}
+
+.mic-toggle:after,
+.mic-toggle:before {
+    --pad: 0rem;
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 0;
+    background-color: rgba(220, 20, 60, 0.2);
+    top: var(--pad);
+    left: var(--pad);
+    right: var(--pad);
+    bottom: var(--pad);
+    border-radius: 50%;
+}
+
+.mic-toggle:after {
+    transition: 0.4s;
+}
+
+.mic-toggle:before {
+    transition: 0.2s;
+}
+
+.mic-toggle:hover:before {
+    --pad: -1rem;
+}
+
+.mic-toggle:hover:after {
+    --pad: -2rem;
+}
+
+.mic-toggle span {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    font-size: 6rem;
+}
+
+.mic-toggle.is-recording:after {
+    animation: smoothPadAfter 0.6s ease-in alternate-reverse forwards infinite;
+}
+
+.mic-toggle.is-recording:before {
+    animation: smoothPadBefore 0.6s ease-in alternate-reverse forwards infinite;
+}
+
+@keyframes smoothPadAfter {
+    0% {
+        top: -2rem;
+        left: -2rem;
+        right: -2rem;
+        bottom: -2rem;
+    }
+
+    100% {
+        top: -0.5rem;
+        left: -0.5rem;
+        right: -0.5rem;
+        bottom: -0.5rem;
+    }
+}
+
+.playback {
+    margin-bottom: 2rem;
+    box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.2);
+    border-radius: 999px;
+    align-items: center;
+}
+
+.is_hidden {
+    display: none;
+}
