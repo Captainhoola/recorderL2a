@@ -134,7 +134,8 @@ uploadBtn.addEventListener('click', async function() {
 
         console.log('FormData prepared:', [...formData.entries()]);
 
-        const response = await fetch('http://localhost:3000/upload', {
+        // Updated URL to point to your deployed backend
+        const response = await fetch('https://google-drive-backend-lmqndoz5ba-uc.a.run.app/upload', {
             method: 'POST',
             body: formData,
         });
