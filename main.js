@@ -8,7 +8,7 @@ const uploadBtn = document.querySelector('#upload-btn'); // Reference the upload
 mic_btn.addEventListener('click', ToggleMic);
 retry_btn.addEventListener('click', ResetRecording);
 
-// Hide the buttons initially
+// Initially hide playback and buttons
 playback.hidden = true;
 uploadBtn.hidden = true;
 retry_btn.hidden = true;
@@ -54,9 +54,9 @@ function SetupStream(stream) {
         playback.src = audioURL;
 
         // Show the buttons and update instructions after recording stops
-        playback.hidden = false;
-        uploadBtn.hidden = false;
-        retry_btn.hidden = false;
+        playback.hidden = false; // Make playback visible
+        uploadBtn.hidden = false; // Make upload button visible
+        retry_btn.hidden = false; // Make retry button visible
 
         dynamicBox.textContent = 'Recording stopped. You can now review your answer or upload it.';
     };
